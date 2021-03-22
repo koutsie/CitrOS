@@ -1,4 +1,4 @@
-![citrus.png](/assets/uh3.png)
+![Citros](/assets/Logos/CitrOS.png)
 # CitrOS
 Package lists, updates &amp; other stuff for CitrOS.
 
