@@ -1,4 +1,4 @@
-![Citros](/assets/Logos/CitrOS.png)
+<img src="/assets/Logos/CitrOS.png" width="40%">
 # CitrOS
 Package lists, updates &amp; other stuff for CitrOS.
 
