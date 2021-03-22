@@ -3,6 +3,8 @@
 # CitrOS
 Package lists, updates &amp; other stuff for CitrOS.
 
+#### Current status: very very very very very very very very early WIP but bootable.
+##### reason? search for FIXME in the repo :)
 
 
 

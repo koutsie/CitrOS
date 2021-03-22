@@ -1,0 +1,40 @@
+#!/bin/sh
+
+echo "Getting sowm..."
+git clone https://github.com/dylanaraps/sowm.git 2>&1 | grep -i "failed\|error"
+cd sowm
+
+echo "Getting sowm binds..."
+wget https://raw.githubusercontent.com/koutsie/Citros/master/configs/sowm/config.def.h -O config.def.h 2>&1 | grep -i "failed\|error" # Get CitrOS's binds
+
+echo "Getting patches for sowm..."
+wget https://patch-diff.githubusercontent.com/raw/dylanaraps/sowm/pull/57.patch 2>&1 | grep -i "failed\|error"
+wget https://patch-diff.githubusercontent.com/raw/dylanaraps/sowm/pull/59.patch 2>&1 | grep -i "failed\|error"
+
+echo "Patching sowm..."
+patch -t < 57.patch > /dev/null # Titlebars
+patch -t < 59.patch > /dev/null # Keyboard move/resize
+
+echo "Compiling sowm & installing..."
+make -B -s # Compile sowm.
+mkdir -p -v /usr/local/bin/ > /dev/null
+cp sowm /usr/local/bin/ > /dev/null
+wget https://github.com/koutsie/Citros/blob/master/configs/sowm/sowm.desktop 2>&1 | grep -i "failed\|error"
+mkdir -p -v /usr/share/xsessions/ > /dev/null  
+cp sowm.desktop /usr/share/xsessions/ > /dev/null
+rm -rf sowm
+
+# Yes this is my method of notifying myself of this.
+printf '\e[?5h'
+sleep 1
+printf '\e[?5l'
+sleep 1
+printf '\e[?5h'
+sleep 1
+printf '\e[?5l'
+sleep 1
+printf '\e[?5h'
+sleep 1
+printf '\e[?5l'
+sleep 1
+sleep 20 

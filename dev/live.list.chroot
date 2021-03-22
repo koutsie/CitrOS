@@ -1,0 +1,37 @@
+# Current builds don't make use of sowm yet, so commented out ones are unneeded AON.
+mpv
+# git
+# feh
+# gcc
+curl
+sudo
+bash
+wget
+make
+xorg
+xinit
+dmenu
+xterm
+falkon
+thunar
+lightdm
+neofetch
+live-boot
+flameshot
+lxqt-core
+pulseaudio
+# libx11-dev
+live-config
+pavucontrol
+xserver-xorg
+open-vm-tools
+xfce4-terminal
+bash-completion
+network-manager
+build-essential
+module-assistant
+tango-icon-theme
+xserver-xorg-core
+apt-transport-https
+live-config-systemd
+open-vm-tools-deskop
