@@ -107,6 +107,7 @@ sudo lb config noauto \
 cd ../../
 echo "Making directories..."
 mkdir -p -v citros/live-build-buster/config/includes.chroot/etc/ > /dev/null # Live user /etc/
+mkdir -p -v citros/live-build-buster/config/includes.installer/etc/ # Yep we're making this folder twice. As of now at least.
 mkdir -p -v citros/live-build-buster/config/includes.chroot/home/edible/ > /dev/null # Live user home
 mkdir -p -v citros/live-build-buster/config/includes.installer/etc/skel/ > /dev/null # Installer /etc/  |-| Installer home skeleton
 mkdir -p -v citros/live-build-buster/config/includes.chroot/usr/share/lxqt/themes/debian/ > /dev/null # Wallpaper dir
@@ -160,7 +161,6 @@ cp live.list.chroot citros/live-build-buster/config/package-lists/normal.list.ch
 echo "Copying over installer banner..."
 cp assets/banner.png citros/live-build-buster/config/includes.installer/usr/share/graphics/logo_debian.png > /dev/null
 cp assets/banner.png citros/live-build-buster/config/includes.installer/usr/share/graphics/logo_debian_dark.png > /dev/null
-cd citros/live-build-buster/
 
 #FIXME: Add this functionality.
 #echo "Copying over preseed file..."
@@ -182,10 +182,10 @@ echo "Copying over build identifiers..."
 # FIXME: Very very dirty way of doing this
 # Edit: Moved build identifiers to a os-release file in the root of dev, a bit cleaner but there must be a better way...
 # Edit remember to remove the no output tags from these !!
-cat os-release > citros/live-build-buster/config/includes.chroot/etc/os-release > /dev/null 2>&1 &
-cat os-release > citros/live-build-buster/config/includes.installer/etc/os-release > /dev/null 2>&1 &
-echo "$buildt" > citros/live-build-buster/config/includes.chroot/etc/CitrOSBuild > /dev/null 2>&1 &
-echo "$buildt" > citros/live-build-buster/config/includes.installer/etc/CitrOSBuild > /dev/null 2>&1 &
+cat os-release > citros/live-build-buster/config/includes.chroot/etc/os-release > /dev/null
+cat os-release > citros/live-build-buster/config/includes.installer/etc/os-release > /dev/null
+echo "$buildt" > citros/live-build-buster/config/includes.chroot/etc/CitrOSBuild > /dev/null
+echo "$buildt" > citros/live-build-buster/config/includes.installer/etc/CitrOSBuild > /dev/null
 echo "Configuration done, starting build..."
 
 # Clean it.
