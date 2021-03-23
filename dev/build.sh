@@ -181,8 +181,9 @@ cp boot-time* citros/live-build-buster/config/includes.chroot/lib/live/config/ >
 echo "Copying over build identifiers..."
 # FIXME: Very very dirty way of doing this
 # Edit: Moved build identifiers to a os-release file in the root of dev, a bit cleaner but there must be a better way...
-cp os-release citros/live-build-buster/config/includes.chroot/etc/os-release > /dev/null
-cp os-release citros/live-build-buster/config/includes.installer/etc/os-release > /dev/null
+# Edit remember to remove the no output tags from these !!
+cat os-release > citros/live-build-buster/config/includes.chroot/etc/os-release > /dev/null 2>&1 &
+cat os-release > citros/live-build-buster/config/includes.installer/etc/os-release > /dev/null 2>&1 &
 echo "$buildt" > citros/live-build-buster/config/includes.chroot/etc/CitrOSBuild > /dev/null 2>&1 &
 echo "$buildt" > citros/live-build-buster/config/includes.installer/etc/CitrOSBuild > /dev/null 2>&1 &
 echo "Configuration done, starting build..."
