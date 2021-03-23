@@ -62,7 +62,7 @@ flash()
  # Feel free to suggest alternatives of course!
 bname="koutsie"
 buildt=$(date +"Built on %D at %T.%3N by $bname")
-buildt=$(echo $buildt) # yes. i know i know.
+buildt=$(echo "echo "$buildt"") # yes. i know i know.
 
 sleep 4
 
