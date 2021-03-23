@@ -1,4 +1,5 @@
 # Current builds don't make use of sowm yet, so commented out ones are unneeded AON.
+# FIXME: Make seperate list for installed as in normal.live.chroot (?)
 mpv
 # git
 # feh
@@ -34,4 +35,5 @@ tango-icon-theme
 xserver-xorg-core
 apt-transport-https
 live-config-systemd
-open-vm-tools-deskop
+open-vm-tools-desktop
+debian-installer-launcher

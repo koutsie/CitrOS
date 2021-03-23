@@ -1,2 +1,2 @@
 exec startlxqt
-sleep 5 && feh --bg-fill $HOME/wallpapers/CitrOS-default.png
+# We don't do a lot here don't we?
