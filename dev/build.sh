@@ -60,7 +60,8 @@ flash()
  # Set build date and current username as build identifiers.
  # I know we could set this later but I like to consider the build's start time as the "build date".
  # Feel free to suggest alternatives of course!
-buildt=$(date +"Built on %D at %T.%3N by $(whoami)")
+bname="koutsie"
+buildt=$(date +"Built on %D at %T.%3N by $bname")
 buildt=$(echo $buildt) # yes. i know i know.
 
 sleep 4
@@ -105,9 +106,10 @@ sudo lb config noauto \
     --iso-application "CitrOS Hybird" \ > /dev/null
 
 cd ../../
+
 echo "Making directories..."
 mkdir -p -v citros/live-build-buster/config/includes.chroot/etc/ > /dev/null # Live user /etc/
-mkdir -p -v citros/live-build-buster/config/includes.installer/etc/ # Yep we're making this folder twice. As of now at least.
+mkdir -p -v citros/live-build-buster/config/includes.installer/etc/ > /dev/null # Yep we're making this folder twice. As of now at least.
 mkdir -p -v citros/live-build-buster/config/includes.chroot/home/edible/ > /dev/null # Live user home
 mkdir -p -v citros/live-build-buster/config/includes.installer/etc/skel/ > /dev/null # Installer /etc/  |-| Installer home skeleton
 mkdir -p -v citros/live-build-buster/config/includes.chroot/usr/share/lxqt/themes/debian/ > /dev/null # Wallpaper dir
@@ -120,11 +122,11 @@ echo "Copying over bashrc..."
  # Now I don't know if these two are the same but fuck it, we do it anyways.
  # Please do make a PR to fix this if I'm horribly wrong about how this works.
 cp bashrc citros/live-build-buster/config/includes.chroot/home/edible/.bashrc > /dev/null
-echo $buildt >> citros/live-build-buster/config/includes.chroot/home/edible/.bashrc # Set builtby & date.
+echo $buildt >> citros/live-build-buster/config/includes.chroot/home/edible/.bashrc > /dev/null # Set builtby & date.
 chmod +x citros/live-build-buster/config/includes.chroot/home/edible/.bashrc > /dev/null
 # Copy over stuff to the installer(?)
 cp bashrc citros/live-build-buster/config/includes.installer/etc/skel/.bashrc > /dev/null
-echo $buildt >> citros/live-build-buster/config/includes.installer/etc/skel/.bashrc # Set builtby & date.
+echo $buildt >> citros/live-build-buster/config/includes.installer/etc/skel/.bashrc > /dev/null # Set builtby & date.
 chmod +x citros/live-build-buster/config/includes.installer/etc/skel/.bashrc > /dev/null
 
 echo "Copying over xinitrc..."
@@ -136,13 +138,13 @@ chmod +x citros/live-build-buster/config/includes.installer/etc/skel/.xinitrc > 
 
 # This needs to be refactored, maybe an after first boot installer?
 echo "Copying over wallpaper..."
-cp assets/CitrOS-default.svg citros/live-build-buster/config/includes.chroot/usr/share/lxqt/themes/debian/wallpaper.svg
+cp assets/CitrOS-default.svg citros/live-build-buster/config/includes.chroot/usr/share/lxqt/themes/debian/wallpaper.svg > /dev/null
 # Test including wallpaper in installed OS.
 # This works!
-cp assets/CitrOS-default.svg citros/live-build-buster/config/includes.installer/usr/share/lxqt/themes/debian/wallpaper.svg
+cp assets/CitrOS-default.svg citros/live-build-buster/config/includes.installer/usr/share/lxqt/themes/debian/wallpaper.svg > /dev/null
 
 echo "Setting nameserver..."
-echo -e "# CitrOS defaults to Mullvad's DNS.\n193.138.218.74" > citros/live-build-buster/config/includes.chroot/etc/resolv.conf # We use Mullvad's  DNS.
+echo -e "# CitrOS defaults to Mullvad's DNS.\n193.138.218.74" > citros/live-build-buster/config/includes.chroot/etc/resolv.conf > /dev/null # We use Mullvad's  DNS.
 
 # Not used AON.
 #echo "Copying over sowm's hook file for chroot build..."
@@ -187,6 +189,8 @@ cat os-release > citros/live-build-buster/config/includes.installer/etc/os-relea
 echo "$buildt" > citros/live-build-buster/config/includes.chroot/etc/CitrOSBuild > /dev/null
 echo "$buildt" > citros/live-build-buster/config/includes.installer/etc/CitrOSBuild > /dev/null
 echo "Configuration done, starting build..."
+
+cd citros/live-build-buster # ???
 
 # Clean it.
 echo "Cleaning..."
