@@ -1,7 +1,8 @@
 <img src="/assets/Logos/CitrOS.png" width="40%">
 
+![Lines of code](https://img.shields.io/tokei/lines/github/koutsie/CitrOS)
 [![Hits-of-Code](https://hitsofcode.com/github/koutsie/CitrOS)](https://hitsofcode.com/github/koutsie/CitrOS/view)
-<a href="https://twitter.com/notkoutsie"><img src="https://flat.badgen.net/twitter/follow/notkoutsie"></a>
+![Twitter Follow](https://img.shields.io/twitter/follow/notkoutsie?color=white&label=%40notkoutsie&logo=twitter&style=flat-square)
 # CitrOS
 Build script, updates & other information for CitrOS.
 
